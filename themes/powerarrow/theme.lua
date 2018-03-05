@@ -104,6 +104,14 @@ theme.lain_icons         = os.getenv("HOME") ..
                            "/.config/awesome/lain/icons/layout/default/"
 theme.layout_centerwork  = theme.lain_icons .. "centerwork.png"
 
+-- Text clock
+local clockicon = wibox.widget.imagebox(theme.widge_clock)
+local clock = awful.widget.watch(
+	"date +'%a %d %b %R'", 60,
+	function(widget, stdout)
+		widget:set_mark(" " .. markup(theme.font, stdout))
+	end
+)
 
 -- Binary clock
 local binclock = require("themes.powerarrow.binclock"){
@@ -125,7 +133,7 @@ local clock = awful.widget.watch(
 -- Calendar
 theme.cal = lain.widget.calendar({
     --cal = "cal --color=always",
-    attach_to = { binclock.widget },
+    attach_to = { clock },
     notification_preset = {
         font = "xos4 Terminus 10",
         fg   = theme.fg_normal,
@@ -287,7 +295,7 @@ local ram_col = "#E8A381"
 local cpu_col = "#666A86"
 local temp_col = "#95B8D1"
 local hdd_col = "#E8AE51"
-local bat_col = "#725459"
+local bat_col = "#107E7D"
 local net_col = "#95B8D1"
 local clock_col = "#666A86"
 
@@ -389,7 +397,7 @@ function theme.at_screen_connect(s)
             arrow(bat_col, net_col),
             wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), net_col),
             arrow(net_col, clock_col),
-            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), clock_col),
+            wibox.container.background(wibox.container.margin(clock, 4, 8), clock_col),
             arrow(clock_col, "alpha"),
             --]]
             s.mylayoutbox,
