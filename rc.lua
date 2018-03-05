@@ -84,9 +84,9 @@ local guieditor    = "atom"
 local scrlocker    = "xlock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "Term", "Browser", "Utils", "System", "Whatever" }
+awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    lain.layout.centerwork,
+    awful.layout.suit.tile,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -729,3 +729,5 @@ client.connect_signal("focus", border_adjust)
 client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+
