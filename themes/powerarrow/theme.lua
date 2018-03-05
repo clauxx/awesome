@@ -18,9 +18,9 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 theme.wallpaper                                 = theme.dir .. "/hmm.jpg"
 theme.font                                      = "xos4 Terminus 9"
 theme.fg_normal                                 = "#FEFEFE"
-theme.fg_focus                                  = "#32D6FF"
+theme.fg_focus                                  = "#32D6FF" -- bar text color when focused 
 theme.fg_urgent                                 = "#C83F11"
-theme.bg_normal                                 = "#222222"
+theme.bg_normal                                 = "#222222" -- color of the bar 
 theme.bg_focus                                  = "#1E2320"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#00CCFF"
@@ -369,21 +369,21 @@ function theme.at_screen_connect(s)
             pl(binclock.widget, "#777E76"),
             --]]
             -- using separators
-            arrow(theme.bg_focus, "#777E76"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#777E76"),
-            arrow("#777E76", "#4B696D"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#4B696D"),
-            arrow("#4B696D", "#4B3B51"),
-            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "#4B3B51"),
-            arrow("#4B3B51", "#CB755B"),
-            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#CB755B"),
-            arrow("#CB755B", "#8DAA9A"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#8DAA9A"),
-            arrow("#8DAA9A", "#C0C0A2"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#C0C0A2"),
-            arrow("#C0C0A2", "#777E76"),
-            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), "#777E76"),
-            arrow("#777E76", "alpha"),
+            arrow(theme.bg_focus, "#d87e79"),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#d87e79"),
+            arrow("#d87e79", "#573c56"),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#573c56"),
+            arrow("#573c56", "#a94c40"),
+            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "#a94c40"),
+            arrow("#a94c40", "#3c3f63"),
+            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#3c3f63"),
+            arrow("#3c3f63", "#12141c"),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#12141c"),
+            arrow("#12141c", "#573c56"),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#573c56"),
+            arrow("#573c56", "#d87e79"),
+            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), "#d87e79"),
+            arrow("#d87e79", "alpha"),
             --]]
             s.mylayoutbox,
         },
