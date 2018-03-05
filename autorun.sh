@@ -7,5 +7,4 @@ function run {
   fi
 }
 
-run udisksvm -a -s
-run htop
+run udiskie &
