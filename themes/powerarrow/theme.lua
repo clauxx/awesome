@@ -20,11 +20,11 @@ theme.font                                      = "xos4 Terminus 9"
 theme.fg_normal                                 = "#FEFEFE"
 theme.fg_focus                                  = "#32D6FF" -- bar text color when focused 
 theme.fg_urgent                                 = "#C83F11"
-theme.bg_normal                                 = "#222222" -- color of the bar 
+theme.bg_normal                                 = "#333333" -- color of the bar 
 theme.bg_focus                                  = "#1E2320"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#00CCFF"
-theme.tasklist_bg_focus                         = "#222222"
+theme.tasklist_bg_focus                         = "#333333"
 theme.tasklist_fg_focus                         = "#00CCFF"
 theme.border_width                              = 1
 theme.border_normal                             = "#3F3F3F"
@@ -61,8 +61,7 @@ theme.widget_mem                                = theme.dir .. "/icons/mem.png"
 theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
 theme.widget_temp                               = theme.dir .. "/icons/temp.png"
 theme.widget_net                                = theme.dir .. "/icons/net.png"
-theme.widget_hdd                                = theme.dir .. "/icons/hdd.png"
-theme.widget_music                              = theme.dir .. "/icons/note.png"
+theme.widget_hdd                                = theme.dir .. "/icons/hdd.png" theme.widget_music                              = theme.dir .. "/icons/note.png"
 theme.widget_music_on                           = theme.dir .. "/icons/note_on.png"
 theme.widget_music_pause                        = theme.dir .. "/icons/pause.png"
 theme.widget_music_stop                         = theme.dir .. "/icons/stop.png"
@@ -283,6 +282,15 @@ local net = lain.widget.net({
     end
 })
 
+-- Bar colors
+local ram_col = "#E8A381"
+local cpu_col = "#666A86"
+local temp_col = "#95B8D1"
+local hdd_col = "#E8AE51"
+local bat_col = "#725459"
+local net_col = "#95B8D1"
+local clock_col = "#666A86"
+
 -- Separators
 local arrow = separators.arrow_left
 
@@ -301,8 +309,7 @@ function theme.powerline_rl(cr, width, height)
     cr:line_to(offset + width               , height   )
     cr:line_to(offset + arrow_depth         , height   )
     cr:line_to(offset                       , height/2 )
-
-    cr:close_path()
+cr:close_path()
 end
 
 local function pl(widget, bgcolor, padding)
@@ -369,21 +376,21 @@ function theme.at_screen_connect(s)
             pl(binclock.widget, "#777E76"),
             --]]
             -- using separators
-            arrow(theme.bg_focus, "#d87e79"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#d87e79"),
-            arrow("#d87e79", "#573c56"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#573c56"),
-            arrow("#573c56", "#a94c40"),
-            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "#a94c40"),
-            arrow("#a94c40", "#3c3f63"),
-            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#3c3f63"),
-            arrow("#3c3f63", "#12141c"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#12141c"),
-            arrow("#12141c", "#573c56"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#573c56"),
-            arrow("#573c56", "#d87e79"),
-            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), "#d87e79"),
-            arrow("#d87e79", "alpha"),
+            arrow(theme.bg_normal, ram_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), ram_col),
+            arrow(ram_col, cpu_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), cpu_col),
+            arrow(cpu_col, temp_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), temp_col),
+            arrow(temp_col, hdd_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { fsicon, theme.fs.widget, layout = wibox.layout.align.horizontal }, 3, 3), hdd_col),
+            arrow(hdd_col, bat_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), bat_col),
+            arrow(bat_col, net_col),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), net_col),
+            arrow(net_col, clock_col),
+            wibox.container.background(wibox.container.margin(binclock.widget, 4, 8), clock_col),
+            arrow(clock_col, "alpha"),
             --]]
             s.mylayoutbox,
         },
