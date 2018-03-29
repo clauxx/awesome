@@ -290,7 +290,7 @@ local net = lain.widget.net({
     end
 })
 
-local colors = {"#4A4C4B","#0C0C0C","#4A4C4B","#0C0C0C","#4A4C4B"} --findmeplease
+local colors = {"#191919","#464746","#646566","#545c58","#343c38"} --findmeplease
 
 -- Bar colors
 local ram_col = colors[1]
