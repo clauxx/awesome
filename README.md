@@ -7,6 +7,7 @@ run the bash script wpchange.sh from /awesome/themes/powerarrow/ with the wallpa
 e.g. ./wpchange /wallpapers/space.jpg
 
 Specific:
+* API used: http://www.pictaculous.com/api/
 * the theme.lua file has the "--findmeplease" and "--findwallpaper" comments for the python script
 * if it's a one color wallpaper, probably will fail and kill your theme.lua, so backup first!
 * my backup works only if the script runs successfully
