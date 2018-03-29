@@ -15,7 +15,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
-theme.wallpaper = theme.dir .. "/wallpapers/space.jpg" --findwallpaper
+theme.wallpaper                                 = theme.dir .. "/hmm.jpg" --findwallpaper
 theme.font                                      = "xos4 Terminus 9"
 theme.fg_normal                                 = "#FEFEFE"
 theme.fg_focus                                  = "#32D6FF" -- bar text color when focused 
@@ -290,16 +290,16 @@ local net = lain.widget.net({
     end
 })
 
-local colors = {"#4A4C4B","#0C0C0C","#4A4C4B","#0C0C0C","#4A4C4B"} --findmeplease
+local colors = {} --findmeplease
 
 -- Bar colors
-local ram_col = colors[1]
-local cpu_col = colors[2]
-local temp_col = colors[3]
-local hdd_col = colors[4]
-local bat_col = colors[5]
-local net_col = colors[2]
-local clock_col = colors[1]
+local ram_col = "#E8A381"
+local cpu_col = "#666A86"
+local temp_col = "#95B8D1"
+local hdd_col = "#E8AE51"
+local bat_col = "#107E7D"
+local net_col = "#95B8D1"
+local clock_col = "#666A86"
 
 -- Separators
 local arrow = separators.arrow_left

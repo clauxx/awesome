@@ -54,6 +54,19 @@ function helpers.lines_from(file)
   return lines
 end
 
+
+-- get array from string
+function helpers.explode(str,div)
+  if(div=='') then return false end
+  local pos,arr = 0,{}
+  for st,sp in function() return string.find(str,div,pos,true) end do
+    table.insert(arr,string.sub(str,pos,st-1))
+    pos = sp + 1
+  end
+  table.insert(arr,string.sub(str,pos))
+  return arr
+end
+
 -- match all lines from a file, returns an empty
 -- list/table if the file or match does not exist
 function helpers.lines_match(regexp, file)
