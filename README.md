@@ -12,3 +12,4 @@ Specific:
 ToDo's:
 * save wallpaper configs in the .csv file and be able to chose a specific color configuration
 * make it more flexible smh (make it work with one color, which is easy -> modify the .php with some logic)
+* put the scripts in a separate folder (files: color.php, colors.csv, replace.py, wpchange.sh)
